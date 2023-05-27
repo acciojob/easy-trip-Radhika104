@@ -1,4 +1,4 @@
-package com.driver.Repository;
+package com.driver.controllers;
 
 import com.driver.model.Airport;
 import com.driver.model.City;
@@ -63,7 +63,7 @@ public class AirportRepository {
     }
     public String bookATicket(int flightId,int passengerId)
     {
-         if(!flightData.containsKey(flightId) || !passengerData.containsKey(passengerId)) return "FAILURE";
+         if(!flightData.containsKey(flightId)) return "FAILURE";
          else if(flightData.get(flightId).getMaxCapacity()>=bookTicket.get(flightId).size()) return "FAILURE";
          else if(bookTicket.get(flightId).contains(passengerId)) return"FAILURE";
          if(bookTicket.containsKey(flightId)) {
